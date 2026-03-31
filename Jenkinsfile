@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment{
-        SERVICE_NAME=${JOB_NAME}
+        SERVICE_NAME="${JOB_NAME}"
         TAG="v${BUILD_NUMBER}"
     }
     stages{

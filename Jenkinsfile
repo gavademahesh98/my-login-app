@@ -7,7 +7,7 @@ pipeline{
     stages{
     stage('Build image'){
         steps{
-            sh "docker build -t ${DOCKER_IMG}:${TAG}"
+            sh "docker build -t ${DOCKER_IMG}:${TAG} ."
         }
     }
     stage('Push-image'){

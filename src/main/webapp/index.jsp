@@ -33,7 +33,7 @@
                     <tr>
                         <td colspan="2" align="center">
                             <hr style="border: 0; border-top: 1px solid #999;">
-                            <span style="font-size: 11px; color: #555;">App Version: 1.0.1</span>
+                            <span style="font-size: 11px; color: #555;">App Version: 2.0.1</span>
                         </td>
                     </tr>
                 </tbody>

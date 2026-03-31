@@ -1,16 +1,12 @@
 pipeline{
     agent any
     environment{
-        DOCKER_IMG="maheshg98/my-login-app"
-        TAG="v1"
+        SERVICE_NAME=${JOB_NAME}
+        TAG="v${BUILD_NUMBER}"
     }
     stages{
-    stage('Build image'){
-        steps{
-            sh "docker build -t ${DOCKER_IMG}:${TAG} ."
-        }
-    }
-    stage('Push-image'){
+ 
+    stage('Build-Push-image'){
         steps{
             withCredentials([usernamePassword(
                     credentialsId: 'docker-cred',
@@ -19,9 +15,9 @@ pipeline{
                 )]) {
 
                     sh '''
-					
+					docker build -t  $DOCKER_USER/$SERVICE_NAME:$TAG .
                     echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-                    docker push $DOCKER_IMG:$TAG
+                    docker push $DOCKER_USER/$SERVICE_NAME:$TAG
                     '''
 			
 			
